@@ -390,257 +390,185 @@
                                 <div class="relative bg-primary-container rounded-xl w-full h-[520px] overflow-hidden">
                                     <!-- STITCH_THREEJS_START:ANIMATION_1 class="block w-full h-full" -->
                                     <div class="block w-full h-full" style="display:block;">
-                                        <script
-                                            src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
-                                        <div id="threejs-container-ANIMATION_1" style="width:100%;height:100%"></div>
+                                       <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+                                        <script src="https://cdn.jsdelivr.net/npm/three@0.125.0/examples/js/loaders/GLTFLoader.js"></script>
+                                        <script src="https://cdn.jsdelivr.net/npm/three@0.125.0/examples/js/loaders/DRACOLoader.js"></script>
+
+                                        <div id="threejs-container-ANIMATION_1" style="width:100%;height:100%;min-height:500px;cursor:grab;"></div>
+
                                         <script>
-                                                (function () {
-                                                    const container = document.getElementById('threejs-container-ANIMATION_1');
-                                                    const devicePixelRatio = window.devicePixelRatio || 1;
-                                                    // Three.js Interactive Electrical Distribution Panel (Panel Listrik B2B Industrial)
-                                                    (function () {
-                                                        const width = container.clientWidth || window.innerWidth;
-                                                        const height = container.clientHeight || window.innerHeight;
+                                            (function () {
+                                                const container = document.getElementById('threejs-container-ANIMATION_1');
+                                                if (!container) return;
 
-                                                        const scene = new THREE.Scene();
-                                                        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-                                                        camera.position.set(0, 0.5, 4.8);
+                                                const width = container.clientWidth || window.innerWidth;
+                                                const height = container.clientHeight || 500;
 
-                                                        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-                                                        renderer.setSize(width, height);
-                                                        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                                                        renderer.shadowMap.enabled = true;
-                                                        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-                                                        container.appendChild(renderer.domElement);
+                                                const scene = new THREE.Scene();
+                                                const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+                                                camera.position.set(0, 0.5, 4.8);
 
-                                                        // Lighting
-                                                        const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
-                                                        scene.add(ambientLight);
+                                                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                                                renderer.setSize(width, height);
+                                                renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+                                                renderer.shadowMap.enabled = true;
+                                                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                                                renderer.outputEncoding = THREE.sRGBEncoding;
+                                                renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                                                renderer.toneMappingExposure = 1.15;
+                                                container.appendChild(renderer.domElement);
 
-                                                        const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.4);
-                                                        dirLight1.position.set(5, 8, 5);
-                                                        scene.add(dirLight1);
+                                                // Lighting
+                                                const hemiLight = new THREE.HemisphereLight(0xffffff, 0x334155, 1.2);
+                                                hemiLight.position.set(0, 10, 0);
+                                                scene.add(hemiLight);
 
-                                                        const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.8);
-                                                        dirLight2.position.set(-5, -2, -3);
-                                                        scene.add(dirLight2);
+                                                const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+                                                scene.add(ambientLight);
 
-                                                        const spotLight = new THREE.SpotLight(0xf59e0b, 1.2);
-                                                        spotLight.position.set(0, 4, 3);
-                                                        spotLight.angle = Math.PI / 4;
-                                                        scene.add(spotLight);
+                                                const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.6);
+                                                dirLight1.position.set(5, 8, 5);
+                                                dirLight1.castShadow = true;
+                                                scene.add(dirLight1);
 
-                                                        // Industrial Main Group
-                                                        const panelGroup = new THREE.Group();
+                                                const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.9);
+                                                dirLight2.position.set(-5, -2, -3);
+                                                scene.add(dirLight2);
 
-                                                        // Materials (Industrial Powder-Coated Metal & Components)
-                                                        const enclosureMat = new THREE.MeshPhongMaterial({
-                                                            color: 0x94a3b8, // Light Industrial Grey / RAL 7035
-                                                            specular: 0x475569,
-                                                            shininess: 40
-                                                        });
+                                                const spotLight = new THREE.SpotLight(0xf59e0b, 1.0);
+                                                spotLight.position.set(0, 4, 3);
+                                                spotLight.angle = Math.PI / 4;
+                                                scene.add(spotLight);
 
-                                                        const darkEnclosureMat = new THREE.MeshPhongMaterial({
-                                                            color: 0x334155, // Dark slate border/plinth
-                                                            specular: 0x1e293b,
-                                                            shininess: 30
-                                                        });
+                                                // Main Group
+                                                const panelGroup = new THREE.Group();
+                                                scene.add(panelGroup);
 
-                                                        const handleMat = new THREE.MeshPhongMaterial({
-                                                            color: 0x0f172a,
-                                                            specular: 0xffffff,
-                                                            shininess: 90
-                                                        });
+                                                // Ground shadow disc
+                                                const shadowGeo = new THREE.CylinderGeometry(1.6, 1.6, 0.01, 32);
+                                                const shadowMat = new THREE.MeshBasicMaterial({ color: 0x0f172a, transparent: true, opacity: 0.25 });
+                                                const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+                                                shadowMesh.position.y = -1.75;
+                                                panelGroup.add(shadowMesh);
 
-                                                        const hazardMat = new THREE.MeshBasicMaterial({
-                                                            color: 0xf59e0b // Warning Yellow / Voltage
-                                                        });
+                                                // Setup DRACOLoader & GLTFLoader
+                                                const dracoLoader = new THREE.DRACOLoader();
+                                                dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.125.0/examples/js/libs/draco/');
 
-                                                        const copperMat = new THREE.MeshPhongMaterial({
-                                                            color: 0xd97706,
-                                                            specular: 0xffedd5,
-                                                            shininess: 80
-                                                        });
+                                                const loader = new THREE.GLTFLoader();
+                                                loader.setDRACOLoader(dracoLoader);
 
-                                                        const mcbGreyMat = new THREE.MeshPhongMaterial({
-                                                            color: 0xe2e8f0,
-                                                            shininess: 20
-                                                        });
+                                                const glbPath = './assets/tripo_convert_2a9e0cd2-83b4-4ec7-968a-0340517b2dcd-v1.glb';
 
-                                                        const indicatorGreenMat = new THREE.MeshBasicMaterial({ color: 0x22c55e });
-                                                        const indicatorRedMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
-                                                        const indicatorYellowMat = new THREE.MeshBasicMaterial({ color: 0xeab308 });
+                                                loader.load(
+                                                    glbPath,
+                                                    function (gltf) {
+                                                        const model = gltf.scene;
 
-                                                        // 1. Main Cabinet Body (Plat Baja 2mm Powder Coated)
-                                                        const bodyGeo = new THREE.BoxGeometry(2.0, 3.2, 0.85);
-                                                        const bodyMesh = new THREE.Mesh(bodyGeo, enclosureMat);
-                                                        panelGroup.add(bodyMesh);
-
-                                                        // Base Plinth (Pondasi Kaki Panel)
-                                                        const plinthGeo = new THREE.BoxGeometry(2.04, 0.25, 0.88);
-                                                        const plinth = new THREE.Mesh(plinthGeo, darkEnclosureMat);
-                                                        plinth.position.y = -1.65;
-                                                        panelGroup.add(plinth);
-
-                                                        // Top Canopy / Rain Hood (IP65 Roof)
-                                                        const roofGeo = new THREE.BoxGeometry(2.1, 0.1, 0.95);
-                                                        const roof = new THREE.Mesh(roofGeo, darkEnclosureMat);
-                                                        roof.position.y = 1.65;
-                                                        panelGroup.add(roof);
-
-                                                        // Door Frame Seam Detail (Front Bevel)
-                                                        const doorGeo = new THREE.BoxGeometry(1.9, 3.0, 0.05);
-                                                        const door = new THREE.Mesh(doorGeo, enclosureMat);
-                                                        door.position.set(0, 0, 0.44);
-                                                        panelGroup.add(door);
-
-                                                        // Rotary IP65 Industrial Lock & Handle
-                                                        const handleBaseGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.04, 24);
-                                                        const handleBase = new THREE.Mesh(handleBaseGeo, handleMat);
-                                                        handleBase.rotation.x = Math.PI / 2;
-                                                        handleBase.position.set(0.75, 0, 0.48);
-                                                        panelGroup.add(handleBase);
-
-                                                        const handleLeverGeo = new THREE.BoxGeometry(0.06, 0.35, 0.06);
-                                                        const handleLever = new THREE.Mesh(handleLeverGeo, handleMat);
-                                                        handleLever.position.set(0.75, -0.12, 0.51);
-                                                        panelGroup.add(handleLever);
-
-                                                        // Three Phase Pilot Indicator Lights (R, S, T)
-                                                        const rLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorRedMat);
-                                                        rLight.rotation.x = Math.PI / 2;
-                                                        rLight.position.set(-0.4, 1.25, 0.47);
-                                                        panelGroup.add(rLight);
-
-                                                        const sLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorYellowMat);
-                                                        sLight.rotation.x = Math.PI / 2;
-                                                        sLight.position.set(-0.25, 1.25, 0.47);
-                                                        panelGroup.add(sLight);
-
-                                                        const tLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorGreenMat);
-                                                        tLight.rotation.x = Math.PI / 2;
-                                                        tLight.position.set(-0.1, 1.25, 0.47);
-                                                        panelGroup.add(tLight);
-
-                                                        // Digital Multi-function Power Meter Window
-                                                        const meterGeo = new THREE.BoxGeometry(0.42, 0.42, 0.04);
-                                                        const meterMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
-                                                        const meter = new THREE.Mesh(meterGeo, meterMat);
-                                                        meter.position.set(0.35, 1.15, 0.47);
-                                                        panelGroup.add(meter);
-
-                                                        // Warning Triangle / High Voltage Emblem
-                                                        const triangleGeo = new THREE.BufferGeometry();
-                                                        const triVerts = new Float32Array([
-                                                            0, 0.12, 0.47,
-                                                            -0.12, -0.09, 0.47,
-                                                            0.12, -0.09, 0.47
-                                                        ]);
-                                                        triangleGeo.setAttribute('position', new THREE.BufferAttribute(triVerts, 3));
-                                                        const triangle = new THREE.Mesh(triangleGeo, hazardMat);
-                                                        triangle.position.set(0, 0.45, 0.01);
-                                                        panelGroup.add(triangle);
-
-                                                        // Ventilation Louvers / Grilles (IP54/IP65 filter slots)
-                                                        for (let i = 0; i < 5; i++) {
-                                                            const louver = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.02), darkEnclosureMat);
-                                                            louver.position.set(-0.55, -1.0 - (i * 0.06), 0.47);
-                                                            panelGroup.add(louver);
-                                                        }
-
-                                                        // Internal Transparent Cutaway / Ghost Preview of Busbars & Breakers
-                                                        const busbarGroup = new THREE.Group();
-                                                        for (let b = 0; b < 3; b++) {
-                                                            const bar = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.8, 0.04), copperMat);
-                                                            bar.position.set(-0.35 + (b * 0.35), 0, 0.15);
-                                                            busbarGroup.add(bar);
-                                                        }
-                                                        // MCCB rows representation inside
-                                                        for (let m = 0; m < 4; m++) {
-                                                            const mcb = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.18, 0.16), mcbGreyMat);
-                                                            mcb.position.set(0.4, -0.6 + (m * 0.32), 0.12);
-                                                            busbarGroup.add(mcb);
-                                                        }
-                                                        panelGroup.add(busbarGroup);
-
-                                                        // Ground shadow disc
-                                                        const shadowGeo = new THREE.CylinderGeometry(1.6, 1.6, 0.01, 32);
-                                                        const shadowMat = new THREE.MeshBasicMaterial({ color: 0x0f172a, transparent: true, opacity: 0.25 });
-                                                        const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
-                                                        shadowMesh.position.y = -1.8;
-                                                        panelGroup.add(shadowMesh);
-
-                                                        scene.add(panelGroup);
-
-                                                        // Interactive Drag & Inertia
-                                                        let isDragging = false;
-                                                        let previousMousePosition = { x: 0, y: 0 };
-                                                        let targetRotationY = -0.4;
-                                                        let targetRotationX = 0.08;
-                                                        let autoRotate = true;
-
-                                                        container.addEventListener('pointerdown', (e) => {
-                                                            isDragging = true;
-                                                            autoRotate = false;
-                                                            previousMousePosition = { x: e.clientX, y: e.clientY };
-                                                        });
-
-                                                        window.addEventListener('pointerup', () => {
-                                                            isDragging = false;
-                                                            // Resume auto rotate gently after 3 seconds of inactivity
-                                                            setTimeout(() => { autoRotate = true; }, 3000);
-                                                        });
-
-                                                        window.addEventListener('pointermove', (e) => {
-                                                            if (!isDragging) return;
-                                                            const deltaX = e.clientX - previousMousePosition.x;
-                                                            const deltaY = e.clientY - previousMousePosition.y;
-
-                                                            targetRotationY += deltaX * 0.008;
-                                                            targetRotationX = Math.max(-0.4, Math.min(0.4, targetRotationX + deltaY * 0.008));
-
-                                                            previousMousePosition = { x: e.clientX, y: e.clientY };
-                                                        });
-
-                                                        // Zoom / Wheel event
-                                                        container.addEventListener('wheel', (e) => {
-                                                            e.preventDefault();
-                                                            camera.position.z = Math.max(3.2, Math.min(7.5, camera.position.z + e.deltaY * 0.003));
-                                                        }, { passive: false });
-
-                                                        // Responsive Resize
-                                                        window.addEventListener('resize', () => {
-                                                            const w = container.clientWidth || window.innerWidth;
-                                                            const h = container.clientHeight || window.innerHeight;
-                                                            camera.aspect = w / h;
-                                                            camera.updateProjectionMatrix();
-                                                            renderer.setSize(w, h);
-                                                        });
-
-                                                        // Render Loop
-                                                        let clock = new THREE.Clock();
-                                                        function animate() {
-                                                            requestAnimationFrame(animate);
-                                                            const delta = clock.getDelta();
-
-                                                            if (autoRotate) {
-                                                                targetRotationY += 0.45 * delta;
+                                                        model.traverse(function (node) {
+                                                            if (node.isMesh) {
+                                                                node.castShadow = true;
+                                                                node.receiveShadow = true;
+                                                                if (node.material) {
+                                                                    node.material.needsUpdate = true;
+                                                                }
                                                             }
+                                                        });
 
-                                                            panelGroup.rotation.y += (targetRotationY - panelGroup.rotation.y) * 0.08;
-                                                            panelGroup.rotation.x += (targetRotationX - panelGroup.rotation.x) * 0.08;
+                                                        const box = new THREE.Box3().setFromObject(model);
+                                                        const size = box.getSize(new THREE.Vector3());
+                                                        const center = box.getCenter(new THREE.Vector3());
 
-                                                            // Subtle gentle floating animation
-                                                            panelGroup.position.y = Math.sin(clock.getElapsedTime() * 1.5) * 0.03;
+                                                        const maxDim = Math.max(size.x, size.y, size.z);
+                                                        const targetSize = 3.2;
+                                                        const scaleFactor = targetSize / maxDim;
+                                                        model.scale.setScalar(scaleFactor);
 
-                                                            renderer.render(scene, camera);
-                                                        }
-                                                        animate();
-                                                    })();
-                                                })();
+                                                        model.position.x = -center.x * scaleFactor;
+                                                        model.position.y = -center.y * scaleFactor;
+                                                        model.position.z = -center.z * scaleFactor;
+
+                                                        const scaledHeight = size.y * scaleFactor;
+                                                        shadowMesh.position.y = -(scaledHeight / 2) - 0.15;
+
+                                                        panelGroup.add(model);
+                                                    },
+                                                    undefined,
+                                                    function (error) {
+                                                        console.error('Gagal memuat model GLB:', error);
+                                                    }
+                                                );
+
+                                                // Interactive Drag & Inertia
+                                                let isDragging = false;
+                                                let previousMousePosition = { x: 0, y: 0 };
+                                                let targetRotationY = -0.4;
+                                                let targetRotationX = 0.08;
+                                                let autoRotate = true;
+                                                let autoRotateTimeout;
+
+                                                container.addEventListener('pointerdown', (e) => {
+                                                    isDragging = true;
+                                                    autoRotate = false;
+                                                    clearTimeout(autoRotateTimeout);
+                                                    container.style.cursor = 'grabbing';
+                                                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                                                });
+
+                                                window.addEventListener('pointerup', () => {
+                                                    if (!isDragging) return;
+                                                    isDragging = false;
+                                                    container.style.cursor = 'grab';
+                                                    autoRotateTimeout = setTimeout(() => { autoRotate = true; }, 3000);
+                                                });
+
+                                                window.addEventListener('pointermove', (e) => {
+                                                    if (!isDragging) return;
+                                                    const deltaX = e.clientX - previousMousePosition.x;
+                                                    const deltaY = e.clientY - previousMousePosition.y;
+
+                                                    targetRotationY += deltaX * 0.008;
+                                                    targetRotationX = Math.max(-0.4, Math.min(0.4, targetRotationX + deltaY * 0.008));
+
+                                                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                                                });
+
+                                                // Zoom / Wheel event
+                                                container.addEventListener('wheel', (e) => {
+                                                    e.preventDefault();
+                                                    camera.position.z = Math.max(2.5, Math.min(8.0, camera.position.z + e.deltaY * 0.003));
+                                                }, { passive: false });
+
+                                                // Responsive Resize
+                                                window.addEventListener('resize', () => {
+                                                    const w = container.clientWidth || window.innerWidth;
+                                                    const h = container.clientHeight || 500;
+                                                    camera.aspect = w / h;
+                                                    camera.updateProjectionMatrix();
+                                                    renderer.setSize(w, h);
+                                                });
+
+                                                // Render Loop
+                                                const clock = new THREE.Clock();
+                                                function animate() {
+                                                    requestAnimationFrame(animate);
+                                                    const delta = clock.getDelta();
+
+                                                    if (autoRotate) {
+                                                        targetRotationY += 0.45 * delta;
+                                                    }
+
+                                                    panelGroup.rotation.y += (targetRotationY - panelGroup.rotation.y) * 0.08;
+                                                    panelGroup.rotation.x += (targetRotationX - panelGroup.rotation.x) * 0.08;
+                                                    panelGroup.position.y = Math.sin(clock.getElapsedTime() * 1.5) * 0.03;
+
+                                                    renderer.render(scene, camera);
+                                                }
+                                                animate();
+                                            })();
                                         </script>
-                                    </div>
-                                    <!-- STITCH_THREEJS_END:ANIMATION_1 -->
+                                                                            </div>
+                                                                            <!-- STITCH_THREEJS_END:ANIMATION_1 -->
                                     <!-- Subtle technical grid ambient layer -->
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent pointer-events-none">
