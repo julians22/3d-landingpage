@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-surface": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#004b73",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "secondary-fixed": "#ffdcc3",
+                        "on-primary-fixed": "#131b2e",
+                        "on-surface-variant": "#45464d",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-surface": "#213145",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed": "#001d31",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "on-tertiary-container": "#188ace",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#131b2e",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-container": "#663500",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-high": "#dce9ff",
+                        "surface-tint": "#565e74",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c6c6cd",
+                        "primary": "#000000",
+                        "background": "#f8f9ff",
+                        "outline": "#76777d",
+                        "secondary-container": "#fe932c",
+                        "tertiary-fixed-dim": "#93ccff",
+                        "tertiary-fixed": "#cce5ff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary": "#000000",
+                        "surface-dim": "#cbdbf5",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#001d31",
+                        "on-secondary-fixed": "#2f1500",
+                        "secondary": "#904d00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "1rem",
+                        "margin": "2rem",
+                        "space-lg": "1.5rem",
+                        "gutter": "1.5rem",
+                        "space-xl": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "space-sm": "0.5rem",
+                        "space-xs": "0.25rem",
+                        "space-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-xl": [
+                            "Space Grotesk"
+                        ],
+                        "label-lg": [
+                            "JetBrains Mono"
+                        ],
+                        "label-md": [
+                            "JetBrains Mono"
+                        ],
+                        "label-sm": [
+                            "JetBrains Mono"
+                        ],
+                        "headline-lg": [
+                            "Space Grotesk"
+                        ],
+                        "body-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-md": [
+                            "Space Grotesk"
+                        ],
+                        "headline-xl-mobile": [
+                            "Space Grotesk"
+                        ],
+                        "headline-lg-mobile": [
+                            "Space Grotesk"
+                        ],
+                        "body-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-sm": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-sm": [
+                            "Space Grotesk"
+                        ]
+                    },
+                    "fontSize": {
+                        "headline-xl": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "label-lg": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "label-md": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.04em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "label-sm": [
+                            "10px",
+                            {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.06em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-lg": [
+                            "36px",
+                            {
+                                "lineHeight": "44px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-xl-mobile": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "26px",
+                            {
+                                "lineHeight": "34px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-md": [
+                            "15px",
+                            {
+                                "lineHeight": "22px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-sm": [
+                            "13px",
+                            {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-sm": [
+                            "20px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                },
+            },
+        }</script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+    <header class="top-0 z-50 fixed bg-surface/90 shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-md w-full">
+        <div class="flex justify-between items-center gap-space-md mx-auto px-6 lg:px-12 max-w-7xl h-20">
+            <div class="flex items-center gap-space-md">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-space-xs"><span
+                            class="font-headline-md font-bold text-headline-md text-primary uppercase tracking-tight">VOLTMAX</span><span
+                            class="bg-primary-container px-1.5 py-0.5 rounded font-label-sm text-label-sm text-on-primary">LV/MV</span>
+                    </div><span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Industrial
+                        Switchgear</span>
+                </div>
+            </div>
+            <nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary font-semibold"><a
+                    aria-current="page" class="font-semibold text-primary uppercase transition-colors"
+                    data-path="spesifikasi-teknis" href="#">Spesifikasi Teknis</a><a
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface uppercase transition-colors"
+                    data-path="fitur-3d-dan-hotspot" href="#">Fitur 3D &amp; Hotspot</a><a
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface uppercase transition-colors"
+                    data-path="komponen-busbar" href="#">Komponen Busbar</a><a
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface uppercase transition-colors"
+                    data-path="sertifikasi-sni-dan-iec" href="#">Sertifikasi SNI/IEC</a><a
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface uppercase transition-colors"
+                    data-path="kalkulator-beban" href="#">Kalkulator Beban</a><a
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface uppercase transition-colors"
+                    data-path="hubungi-kami" href="#">Hubungi Kami</a></nav>
+            <div class="flex items-center gap-space-md">
+                <div class="hidden md:flex flex-col text-right"><span
+                        class="flex justify-end items-center gap-1 font-label-sm font-semibold text-label-sm text-secondary uppercase"><span
+                            class="text-[14px] material-symbols-outlined">engineering</span>24/7 Helpline</span><span
+                        class="font-label-md font-medium text-label-md text-on-surface">(021) 8934-8890</span></div><a
+                    class="inline-flex items-center gap-2 bg-primary hover:bg-surface-container-highest px-4 py-2 rounded-lg font-label-md text-label-md text-on-primary hover:text-on-surface uppercase tracking-wider transition-all"
+                    href="https://wa.me/628118934889" target="_blank"><span
+                        class="text-[18px] material-symbols-outlined">chat</span><span>WhatsApp RFQ</span></a>
+                <div class="flex justify-center items-center bg-primary rounded-full w-8 h-8"><span
+                        class="text-[18px] text-on-primary material-symbols-outlined">person</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="bg-surface pt-20 w-full">
+        <div class="flex flex-col w-full">
+            <!-- SECTION 1: HERO (Split Layout with High-Fidelity Technical Specs & 3D Viewer) -->
+            <section class="bg-surface py-12 lg:py-16 w-full">
+                <div class="mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div class="items-center gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-12">
+                        <!-- Left: Engineering Credentials & Pitch -->
+                        <div class="flex flex-col gap-6 lg:col-span-6">
+                            <div
+                                class="inline-flex items-center gap-2.5 bg-surface-container-high shadow-sm px-3 py-1.5 rounded-full w-fit">
+                                <span class="relative flex w-2 h-2">
+                                    <span
+                                        class="inline-flex absolute bg-secondary-container opacity-75 rounded-full w-full h-full animate-ping"></span>
+                                    <span class="inline-flex relative bg-secondary rounded-full w-2 h-2"></span>
+                                </span>
+                                <span
+                                    class="font-label-sm font-semibold text-label-sm text-on-surface uppercase tracking-wider">
+                                    PRODUSEN PANEL LISTRIK INDUSTRI • STANDAR IEC 61439-1/2 &amp; SNI
+                                </span>
+                            </div>
+                            <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight">
+                                Distribusi Daya Presisi &amp; Aman Standar Industri
+                            </h1>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                Solusi enclosure panel LV/MV switchboard modular berkapasitas hingga 6300A, proteksi
+                                IP65 plat baja SPCC 2.0mm powder-coating tahan korosi untuk pabrik, data center, &amp;
+                                gedung komersial.
+                            </p>
+                            <!-- 3 Grid Performance Stats -->
+                            <div class="gap-4 grid grid-cols-3 pt-2">
+                                <div
+                                    class="flex flex-col justify-between bg-surface-container-lowest shadow-sm p-4 rounded-lg">
+                                    <span
+                                        class="font-label-sm font-medium text-label-sm text-on-surface-variant uppercase">Kapasitas
+                                        Maks</span>
+                                    <div class="flex items-baseline gap-1 my-1">
+                                        <span
+                                            class="font-headline-md font-bold text-headline-md text-primary">6300</span>
+                                        <span class="font-label-md font-semibold text-label-md text-secondary">A</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Arus Nominal
+                                        Busbar</span>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-between bg-surface-container-lowest shadow-sm p-4 rounded-lg">
+                                    <span
+                                        class="font-label-sm font-medium text-label-sm text-on-surface-variant uppercase">Ketahanan
+                                        Icw</span>
+                                    <div class="flex items-baseline gap-1 my-1">
+                                        <span class="font-headline-md font-bold text-headline-md text-primary">50</span>
+                                        <span
+                                            class="font-label-md font-semibold text-label-md text-secondary">kA/1s</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Short-Circuit
+                                        Test</span>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-between bg-surface-container-lowest shadow-sm p-4 rounded-lg">
+                                    <span
+                                        class="font-label-sm font-medium text-label-sm text-on-surface-variant uppercase">Ingress
+                                        &amp; Impact</span>
+                                    <div class="flex items-baseline gap-1 my-1">
+                                        <span
+                                            class="font-headline-md font-bold text-headline-md text-primary">IP65</span>
+                                        <span
+                                            class="font-label-md font-semibold text-label-md text-secondary">IK10</span>
+                                    </div>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Proteksi Debu &amp;
+                                        Air</span>
+                                </div>
+                            </div>
+                            <!-- CTAs -->
+                            <div class="flex sm:flex-row flex-col items-stretch sm:items-center gap-4 pt-2">
+                                <a class="inline-flex justify-center items-center gap-2 bg-primary hover:bg-surface-container-highest shadow-md px-6 py-3.5 rounded-lg font-label-md text-label-md text-on-primary hover:text-on-surface uppercase tracking-wider transition-all"
+                                    href="#rfq-section">
+                                    <span class="text-[20px] material-symbols-outlined">request_quote</span>
+                                    <span>Minta Penawaran / Konsultasi Teknis</span>
+                                </a>
+                                <a class="inline-flex justify-center items-center gap-2.5 bg-primary-container hover:bg-surface-container-high px-6 py-3.5 rounded-lg font-label-md text-label-md text-on-primary hover:text-on-surface uppercase tracking-wider transition-all"
+                                    href="https://wa.me/6281234567890" target="_blank">
+                                    <span class="bg-secondary-container rounded-full w-2.5 h-2.5"></span>
+                                    <span class="text-[20px] material-symbols-outlined">chat</span>
+                                    <span>Chat WhatsApp Engineer</span>
+                                </a>
+                            </div>
+                            <!-- Secondary Engineering Note -->
+                            <div
+                                class="flex items-center gap-2 pt-1 font-label-sm text-label-sm text-on-surface-variant">
+                                <span class="text-[16px] text-secondary material-symbols-outlined">verified_user</span>
+                                <span>Tersedia format DWG/CAD, Single Line Diagram (SLD) &amp; Sertifikat Uji Lab
+                                    LMK/PLN</span>
+                            </div>
+                        </div>
+                        <!-- Right: 3D CAD Live Interactive Module -->
+                        <div class="relative lg:col-span-6">
+                            <div
+                                class="relative bg-primary-container shadow-2xl p-1 rounded-2xl w-full overflow-hidden">
+                                <div class="relative bg-primary-container rounded-xl w-full h-[520px] overflow-hidden">
+                                    <!-- STITCH_THREEJS_START:ANIMATION_1 class="block w-full h-full" -->
+                                    <div class="block w-full h-full" style="display:block;">
+                                        <script
+                                            src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+                                        <div id="threejs-container-ANIMATION_1" style="width:100%;height:100%"></div>
+                                        <script>
+                                                (function () {
+                                                    const container = document.getElementById('threejs-container-ANIMATION_1');
+                                                    const devicePixelRatio = window.devicePixelRatio || 1;
+                                                    // Three.js Interactive Electrical Distribution Panel (Panel Listrik B2B Industrial)
+                                                    (function () {
+                                                        const width = container.clientWidth || window.innerWidth;
+                                                        const height = container.clientHeight || window.innerHeight;
+
+                                                        const scene = new THREE.Scene();
+                                                        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+                                                        camera.position.set(0, 0.5, 4.8);
+
+                                                        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                                                        renderer.setSize(width, height);
+                                                        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                                                        renderer.shadowMap.enabled = true;
+                                                        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                                                        container.appendChild(renderer.domElement);
+
+                                                        // Lighting
+                                                        const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+                                                        scene.add(ambientLight);
+
+                                                        const dirLight1 = new THREE.DirectionalLight(0xffffff, 1.4);
+                                                        dirLight1.position.set(5, 8, 5);
+                                                        scene.add(dirLight1);
+
+                                                        const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.8);
+                                                        dirLight2.position.set(-5, -2, -3);
+                                                        scene.add(dirLight2);
+
+                                                        const spotLight = new THREE.SpotLight(0xf59e0b, 1.2);
+                                                        spotLight.position.set(0, 4, 3);
+                                                        spotLight.angle = Math.PI / 4;
+                                                        scene.add(spotLight);
+
+                                                        // Industrial Main Group
+                                                        const panelGroup = new THREE.Group();
+
+                                                        // Materials (Industrial Powder-Coated Metal & Components)
+                                                        const enclosureMat = new THREE.MeshPhongMaterial({
+                                                            color: 0x94a3b8, // Light Industrial Grey / RAL 7035
+                                                            specular: 0x475569,
+                                                            shininess: 40
+                                                        });
+
+                                                        const darkEnclosureMat = new THREE.MeshPhongMaterial({
+                                                            color: 0x334155, // Dark slate border/plinth
+                                                            specular: 0x1e293b,
+                                                            shininess: 30
+                                                        });
+
+                                                        const handleMat = new THREE.MeshPhongMaterial({
+                                                            color: 0x0f172a,
+                                                            specular: 0xffffff,
+                                                            shininess: 90
+                                                        });
+
+                                                        const hazardMat = new THREE.MeshBasicMaterial({
+                                                            color: 0xf59e0b // Warning Yellow / Voltage
+                                                        });
+
+                                                        const copperMat = new THREE.MeshPhongMaterial({
+                                                            color: 0xd97706,
+                                                            specular: 0xffedd5,
+                                                            shininess: 80
+                                                        });
+
+                                                        const mcbGreyMat = new THREE.MeshPhongMaterial({
+                                                            color: 0xe2e8f0,
+                                                            shininess: 20
+                                                        });
+
+                                                        const indicatorGreenMat = new THREE.MeshBasicMaterial({ color: 0x22c55e });
+                                                        const indicatorRedMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+                                                        const indicatorYellowMat = new THREE.MeshBasicMaterial({ color: 0xeab308 });
+
+                                                        // 1. Main Cabinet Body (Plat Baja 2mm Powder Coated)
+                                                        const bodyGeo = new THREE.BoxGeometry(2.0, 3.2, 0.85);
+                                                        const bodyMesh = new THREE.Mesh(bodyGeo, enclosureMat);
+                                                        panelGroup.add(bodyMesh);
+
+                                                        // Base Plinth (Pondasi Kaki Panel)
+                                                        const plinthGeo = new THREE.BoxGeometry(2.04, 0.25, 0.88);
+                                                        const plinth = new THREE.Mesh(plinthGeo, darkEnclosureMat);
+                                                        plinth.position.y = -1.65;
+                                                        panelGroup.add(plinth);
+
+                                                        // Top Canopy / Rain Hood (IP65 Roof)
+                                                        const roofGeo = new THREE.BoxGeometry(2.1, 0.1, 0.95);
+                                                        const roof = new THREE.Mesh(roofGeo, darkEnclosureMat);
+                                                        roof.position.y = 1.65;
+                                                        panelGroup.add(roof);
+
+                                                        // Door Frame Seam Detail (Front Bevel)
+                                                        const doorGeo = new THREE.BoxGeometry(1.9, 3.0, 0.05);
+                                                        const door = new THREE.Mesh(doorGeo, enclosureMat);
+                                                        door.position.set(0, 0, 0.44);
+                                                        panelGroup.add(door);
+
+                                                        // Rotary IP65 Industrial Lock & Handle
+                                                        const handleBaseGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.04, 24);
+                                                        const handleBase = new THREE.Mesh(handleBaseGeo, handleMat);
+                                                        handleBase.rotation.x = Math.PI / 2;
+                                                        handleBase.position.set(0.75, 0, 0.48);
+                                                        panelGroup.add(handleBase);
+
+                                                        const handleLeverGeo = new THREE.BoxGeometry(0.06, 0.35, 0.06);
+                                                        const handleLever = new THREE.Mesh(handleLeverGeo, handleMat);
+                                                        handleLever.position.set(0.75, -0.12, 0.51);
+                                                        panelGroup.add(handleLever);
+
+                                                        // Three Phase Pilot Indicator Lights (R, S, T)
+                                                        const rLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorRedMat);
+                                                        rLight.rotation.x = Math.PI / 2;
+                                                        rLight.position.set(-0.4, 1.25, 0.47);
+                                                        panelGroup.add(rLight);
+
+                                                        const sLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorYellowMat);
+                                                        sLight.rotation.x = Math.PI / 2;
+                                                        sLight.position.set(-0.25, 1.25, 0.47);
+                                                        panelGroup.add(sLight);
+
+                                                        const tLight = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 16), indicatorGreenMat);
+                                                        tLight.rotation.x = Math.PI / 2;
+                                                        tLight.position.set(-0.1, 1.25, 0.47);
+                                                        panelGroup.add(tLight);
+
+                                                        // Digital Multi-function Power Meter Window
+                                                        const meterGeo = new THREE.BoxGeometry(0.42, 0.42, 0.04);
+                                                        const meterMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
+                                                        const meter = new THREE.Mesh(meterGeo, meterMat);
+                                                        meter.position.set(0.35, 1.15, 0.47);
+                                                        panelGroup.add(meter);
+
+                                                        // Warning Triangle / High Voltage Emblem
+                                                        const triangleGeo = new THREE.BufferGeometry();
+                                                        const triVerts = new Float32Array([
+                                                            0, 0.12, 0.47,
+                                                            -0.12, -0.09, 0.47,
+                                                            0.12, -0.09, 0.47
+                                                        ]);
+                                                        triangleGeo.setAttribute('position', new THREE.BufferAttribute(triVerts, 3));
+                                                        const triangle = new THREE.Mesh(triangleGeo, hazardMat);
+                                                        triangle.position.set(0, 0.45, 0.01);
+                                                        panelGroup.add(triangle);
+
+                                                        // Ventilation Louvers / Grilles (IP54/IP65 filter slots)
+                                                        for (let i = 0; i < 5; i++) {
+                                                            const louver = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.02), darkEnclosureMat);
+                                                            louver.position.set(-0.55, -1.0 - (i * 0.06), 0.47);
+                                                            panelGroup.add(louver);
+                                                        }
+
+                                                        // Internal Transparent Cutaway / Ghost Preview of Busbars & Breakers
+                                                        const busbarGroup = new THREE.Group();
+                                                        for (let b = 0; b < 3; b++) {
+                                                            const bar = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.8, 0.04), copperMat);
+                                                            bar.position.set(-0.35 + (b * 0.35), 0, 0.15);
+                                                            busbarGroup.add(bar);
+                                                        }
+                                                        // MCCB rows representation inside
+                                                        for (let m = 0; m < 4; m++) {
+                                                            const mcb = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.18, 0.16), mcbGreyMat);
+                                                            mcb.position.set(0.4, -0.6 + (m * 0.32), 0.12);
+                                                            busbarGroup.add(mcb);
+                                                        }
+                                                        panelGroup.add(busbarGroup);
+
+                                                        // Ground shadow disc
+                                                        const shadowGeo = new THREE.CylinderGeometry(1.6, 1.6, 0.01, 32);
+                                                        const shadowMat = new THREE.MeshBasicMaterial({ color: 0x0f172a, transparent: true, opacity: 0.25 });
+                                                        const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+                                                        shadowMesh.position.y = -1.8;
+                                                        panelGroup.add(shadowMesh);
+
+                                                        scene.add(panelGroup);
+
+                                                        // Interactive Drag & Inertia
+                                                        let isDragging = false;
+                                                        let previousMousePosition = { x: 0, y: 0 };
+                                                        let targetRotationY = -0.4;
+                                                        let targetRotationX = 0.08;
+                                                        let autoRotate = true;
+
+                                                        container.addEventListener('pointerdown', (e) => {
+                                                            isDragging = true;
+                                                            autoRotate = false;
+                                                            previousMousePosition = { x: e.clientX, y: e.clientY };
+                                                        });
+
+                                                        window.addEventListener('pointerup', () => {
+                                                            isDragging = false;
+                                                            // Resume auto rotate gently after 3 seconds of inactivity
+                                                            setTimeout(() => { autoRotate = true; }, 3000);
+                                                        });
+
+                                                        window.addEventListener('pointermove', (e) => {
+                                                            if (!isDragging) return;
+                                                            const deltaX = e.clientX - previousMousePosition.x;
+                                                            const deltaY = e.clientY - previousMousePosition.y;
+
+                                                            targetRotationY += deltaX * 0.008;
+                                                            targetRotationX = Math.max(-0.4, Math.min(0.4, targetRotationX + deltaY * 0.008));
+
+                                                            previousMousePosition = { x: e.clientX, y: e.clientY };
+                                                        });
+
+                                                        // Zoom / Wheel event
+                                                        container.addEventListener('wheel', (e) => {
+                                                            e.preventDefault();
+                                                            camera.position.z = Math.max(3.2, Math.min(7.5, camera.position.z + e.deltaY * 0.003));
+                                                        }, { passive: false });
+
+                                                        // Responsive Resize
+                                                        window.addEventListener('resize', () => {
+                                                            const w = container.clientWidth || window.innerWidth;
+                                                            const h = container.clientHeight || window.innerHeight;
+                                                            camera.aspect = w / h;
+                                                            camera.updateProjectionMatrix();
+                                                            renderer.setSize(w, h);
+                                                        });
+
+                                                        // Render Loop
+                                                        let clock = new THREE.Clock();
+                                                        function animate() {
+                                                            requestAnimationFrame(animate);
+                                                            const delta = clock.getDelta();
+
+                                                            if (autoRotate) {
+                                                                targetRotationY += 0.45 * delta;
+                                                            }
+
+                                                            panelGroup.rotation.y += (targetRotationY - panelGroup.rotation.y) * 0.08;
+                                                            panelGroup.rotation.x += (targetRotationX - panelGroup.rotation.x) * 0.08;
+
+                                                            // Subtle gentle floating animation
+                                                            panelGroup.position.y = Math.sin(clock.getElapsedTime() * 1.5) * 0.03;
+
+                                                            renderer.render(scene, camera);
+                                                        }
+                                                        animate();
+                                                    })();
+                                                })();
+                                        </script>
+                                    </div>
+                                    <!-- STITCH_THREEJS_END:ANIMATION_1 -->
+                                    <!-- Subtle technical grid ambient layer -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent pointer-events-none">
+                                    </div>
+                                    <!-- Top Telemetry & Control HUD -->
+                                    <div
+                                        class="top-4 right-4 left-4 absolute flex justify-between items-center pointer-events-none">
+                                        <div
+                                            class="inline-flex items-center gap-2 bg-surface/90 shadow-sm backdrop-blur-md px-3 py-1.5 rounded pointer-events-auto">
+                                            <span
+                                                class="text-[16px] text-secondary material-symbols-outlined">view_in_ar</span>
+                                            <span
+                                                class="font-label-sm font-semibold text-label-sm text-on-surface uppercase">3D
+                                                CAD Model (Live Interactive)</span>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center gap-1.5 bg-surface-container-lowest/90 shadow-sm backdrop-blur-md px-3 py-1.5 rounded font-label-sm text-label-sm text-on-surface pointer-events-auto">
+                                            <span class="text-[14px] material-symbols-outlined">touch_app</span>
+                                            <span>360° Drag &amp; Scroll Zoom</span>
+                                        </div>
+                                    </div>
+                                    <!-- Interactive Hotspot Direct Shortcuts -->
+                                    <div
+                                        class="right-4 bottom-14 left-4 absolute flex flex-wrap gap-2 pointer-events-auto">
+                                        <button
+                                            class="flex items-center gap-1 bg-surface/90 hover:bg-surface-container shadow-sm backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface uppercase transition-all hotspot-btn"
+                                            onclick="focusHotspot('lock')" type="button">
+                                            <span class="bg-secondary rounded-full w-1.5 h-1.5"></span>
+                                            <span>Kunci IP65</span>
+                                        </button>
+                                        <button
+                                            class="flex items-center gap-1 bg-surface/90 hover:bg-surface-container shadow-sm backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface uppercase transition-all hotspot-btn"
+                                            onclick="focusHotspot('busbar')" type="button">
+                                            <span class="bg-secondary rounded-full w-1.5 h-1.5"></span>
+                                            <span>Busbar Cu 99.9%</span>
+                                        </button>
+                                        <button
+                                            class="flex items-center gap-1 bg-surface/90 hover:bg-surface-container shadow-sm backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface uppercase transition-all hotspot-btn"
+                                            onclick="focusHotspot('breaker')" type="button">
+                                            <span class="bg-secondary rounded-full w-1.5 h-1.5"></span>
+                                            <span>MCCB / ACB Multi-Brand</span>
+                                        </button>
+                                        <button
+                                            class="flex items-center gap-1 bg-surface/90 hover:bg-surface-container shadow-sm backdrop-blur-sm px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface uppercase transition-all hotspot-btn"
+                                            onclick="focusHotspot('vent')" type="button">
+                                            <span class="bg-secondary rounded-full w-1.5 h-1.5"></span>
+                                            <span>Ventilasi Louver</span>
+                                        </button>
+                                    </div>
+                                    <!-- Bottom Status HUD Telemetry Strip -->
+                                    <div
+                                        class="right-4 bottom-4 left-4 absolute flex justify-between items-center bg-primary-container/85 backdrop-blur-md px-3 py-1.5 rounded font-label-sm text-label-sm text-on-primary-container">
+                                        <span class="flex items-center gap-1 text-on-primary">
+                                            <span
+                                                class="text-tertiary-fixed-dim text-[14px] material-symbols-outlined">bolt</span>
+                                            Tegangan Uji: 1000V AC
+                                        </span>
+                                        <span class="text-tertiary-fixed-dim">Finishing: RAL 7035 Textured
+                                            (80-120μm)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECTION 2: INTERACTIVE HOTSPOT BREAKDOWN -->
+            <section class="bg-surface-container-low py-16 w-full">
+                <div class="flex flex-col gap-10 mx-auto px-6 lg:px-12 max-w-7xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col gap-2 max-w-3xl">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-secondary rounded-full w-2 h-2"></span>
+                            <span
+                                class="font-label-sm font-semibold text-label-sm text-secondary uppercase tracking-wider">
+                                Rekayasa Presisi &amp; Manufaktur Fabrikasi
+                            </span>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">
+                            Anatomi Presisi &amp; Keandalan Komponen
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Setiap detail dirancang dengan toleransi presisi mesin CNC punching &amp; laser cut untuk
+                            memastikan zero-failure pada kondisi beban puncak industri terus-menerus.
+                        </p>
+                    </div>
+                    <!-- 4 Engineering Cards with Machined Structural Aesthetics -->
+                    <div class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                        <!-- Card 1: IP65 Sealing -->
+                        <div
+                            class="group relative flex flex-col justify-between bg-surface-container-lowest shadow-sm hover:shadow-md p-6 rounded-lg overflow-hidden transition-shadow">
+                            <div class="top-0 left-0 absolute bg-secondary w-full h-1"></div>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="flex justify-center items-center bg-surface-container rounded w-10 h-10 text-on-surface">
+                                        <span class="text-[22px] material-symbols-outlined">lock</span>
+                                    </span>
+                                    <span
+                                        class="bg-surface-container px-2 py-0.5 rounded font-label-sm font-bold text-label-sm text-on-surface uppercase">
+                                        IP65 / NEMA 4
+                                    </span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Sistem Penguncian &amp;
+                                    Proteksi IP65</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Gasket busa polyurethane continuous robot-applied tanpa sambungan, kunci rotary
+                                    handle mekanis 3-point lock, serta engsel tersembunyi beban berat hingga 150kg per
+                                    daun pintu.
+                                </p>
+                            </div>
+                            <div
+                                class="flex justify-between items-center mt-4 pt-6 font-label-sm text-label-sm text-on-surface-variant">
+                                <span>Toleransi Tekuk: ±0.2mm</span>
+                                <span class="font-semibold text-secondary">CNC V-Groove</span>
+                            </div>
+                        </div>
+                        <!-- Card 2: Copper Busbar -->
+                        <div
+                            class="group relative flex flex-col justify-between bg-surface-container-lowest shadow-sm hover:shadow-md p-6 rounded-lg overflow-hidden transition-shadow">
+                            <div class="top-0 left-0 absolute bg-secondary w-full h-1"></div>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="flex justify-center items-center bg-surface-container rounded w-10 h-10 text-on-surface">
+                                        <span class="text-[22px] material-symbols-outlined">electrical_services</span>
+                                    </span>
+                                    <span
+                                        class="bg-surface-container px-2 py-0.5 rounded font-label-sm font-bold text-label-sm text-on-surface uppercase">
+                                        Cu 99.9% ETP
+                                    </span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Sistem Busbar Tembaga ETP
+                                    99.9%</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Busbar tembaga electrolytic dengan tin-plating anti-oksidasi, phase separation
+                                    barrier polikarbonat tahan api (UL94-V0), dan isolasi heat-shrink tubing bersandi
+                                    warna SNI / PUIL.
+                                </p>
+                            </div>
+                            <div
+                                class="flex justify-between items-center mt-4 pt-6 font-label-sm text-label-sm text-on-surface-variant">
+                                <span>Konduktivitas: 101% IACS</span>
+                                <span class="font-semibold text-secondary">T2 Solid Copper</span>
+                            </div>
+                        </div>
+                        <!-- Card 3: Breaker Compartment -->
+                        <div
+                            class="group relative flex flex-col justify-between bg-surface-container-lowest shadow-sm hover:shadow-md p-6 rounded-lg overflow-hidden transition-shadow">
+                            <div class="top-0 left-0 absolute bg-secondary w-full h-1"></div>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="flex justify-center items-center bg-surface-container rounded w-10 h-10 text-on-surface">
+                                        <span class="text-[22px] material-symbols-outlined">developer_board</span>
+                                    </span>
+                                    <span
+                                        class="bg-surface-container px-2 py-0.5 rounded font-label-sm font-bold text-label-sm text-on-surface uppercase">
+                                        Form 3b / 4b
+                                    </span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Kompartemen MCCB / ACB
+                                    Modular</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Kompatibel penuh dengan pemutus arus merk Schneider Masterpact, ABB Emax, dan Chint.
+                                    Pemisahan fungsional modular untuk keamanan teknisi saat perbaikan parsial.
+                                </p>
+                            </div>
+                            <div
+                                class="flex justify-between items-center mt-4 pt-6 font-label-sm text-label-sm text-on-surface-variant">
+                                <span>Interlock: Mechanical/Key</span>
+                                <span class="font-semibold text-secondary">IEC 61439 Sec. 8</span>
+                            </div>
+                        </div>
+                        <!-- Card 4: Thermal & Louver -->
+                        <div
+                            class="group relative flex flex-col justify-between bg-surface-container-lowest shadow-sm hover:shadow-md p-6 rounded-lg overflow-hidden transition-shadow">
+                            <div class="top-0 left-0 absolute bg-secondary w-full h-1"></div>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex justify-between items-center">
+                                    <span
+                                        class="flex justify-center items-center bg-surface-container rounded w-10 h-10 text-on-surface">
+                                        <span class="text-[22px] material-symbols-outlined">mode_fan</span>
+                                    </span>
+                                    <span
+                                        class="bg-surface-container px-2 py-0.5 rounded font-label-sm font-bold text-label-sm text-on-surface uppercase">
+                                        ΔT &lt; 35°C
+                                    </span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Manajemen Termal &amp;
+                                    Ventilasi</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Kisi ventilasi filter debu washable ganda (G3/G4 media), opsi forced air fan
+                                    thermostat terintegrasi, mempertahankan temperatur busbar internal selalu di bawah
+                                    batas aman 45°C.
+                                </p>
+                            </div>
+                            <div
+                                class="flex justify-between items-center mt-4 pt-6 font-label-sm text-label-sm text-on-surface-variant">
+                                <span>Exhaust: Thermostat Cut</span>
+                                <span class="font-semibold text-secondary">Anti-Condensation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Factory Fabrication Visual Strip -->
+                    <div class="gap-6 grid grid-cols-1 md:grid-cols-3 pt-4">
+                        <div class="group relative shadow-sm rounded-lg h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="High-precision CNC turret punching machine shaping cold-rolled SPCC steel sheet metal with exact tolerances in an industrial electrical switchboard manufacturing facility with cool blue factory lighting."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZxcWGQn6r7ktjTyhUCV_ny6voFNYAB85sxUFFmCFzWC1yyUYzID_RqUIh56FD8Q6uN5LLQit5CtZ7EhOdXmQ_6otmgXPYhVJvQ3q18Rw6InSf_JMXawz6Vw4twJ87MhAGrdr3yiqdhuQU5hk0cg5WulxTvYY3xJGVsUXV57CzT8JlcySMEDqliugx-DFv7MjrJcHqJjHXlmL1gDtx_jq257AGh596v5wGuyFz3Ow" />
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-4">
+                                <span class="text-tertiary-fixed font-label-sm font-bold text-label-sm uppercase">Mesin
+                                    CNC Amada Punching</span>
+                                <span class="font-body-sm text-body-sm text-on-primary">Presisi pemotongan plat baja
+                                    dengan akurasi 0.05mm</span>
+                            </div>
+                        </div>
+                        <div class="group relative shadow-sm rounded-lg h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Heavy industrial automated hydraulic busbar bending and punching machine processing pure electrolytic copper bars with precise 90 degree bends for heavy switchboards."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC045wjcCg7A52y44o2qzhjkcuc_FPjW3PSiXXHjepLTBlOfR-8PFzYsVPkQb6kUVKe2-gn4sIbiQzghFoMKz5gyF5td-14QMw2IosKboSdBZMzVt-h9DKDjZxnUZFBHNOmC0xLKqHR-zTW1fbQXliF9zUX2hGND4p8Psj0MGEbSIAH4lTQPwY_WUPep0Cov6o5qQbc9IZfLHPAAyBVzi_jEkLYOQMsqVqi_A1DiCI" />
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-4">
+                                <span
+                                    class="text-tertiary-fixed font-label-sm font-bold text-label-sm uppercase">Automated
+                                    Busbar Bending</span>
+                                <span class="font-body-sm text-body-sm text-on-primary">Tekukan tembaga tanpa retak
+                                    mikro demi konduksi sempurna</span>
+                            </div>
+                        </div>
+                        <div class="group relative shadow-sm rounded-lg h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Automated electrostatic powder coating line applying RAL 7035 textured protective finish to industrial steel electrical panel frames, high temperature oven baking in cleanroom setting."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYBFHh6I5x0RgljhhrIdGW1of18LvAY1PrTF3kj0SQIaQenngw072shVYfIlq6H6eVPstGG5H2r1K6QidM2756RSeZz9LTHt1X1GVhd3a4Vj07ft4tBLizKPY3zcDSE3os5kpbObOvGuMJIu6vUluBpl-91gqZJNJ3b4vK7pTgK6tKoXKRVhtRhAZ6iTozmxilwXr-q0aU26hZ5y3eE6Jgptl3faalPNbqRDNuBLA" />
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-4">
+                                <span class="text-tertiary-fixed font-label-sm font-bold text-label-sm uppercase">Powder
+                                    Coating 200°C Oven Cure</span>
+                                <span class="font-body-sm text-body-sm text-on-primary">Ketahanan uji kabut garam 500
+                                    jam anti-korosi asam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECTION 3: TECHNICAL SPECIFICATIONS & CERTIFICATION SHEET -->
+            <section class="bg-surface py-16 w-full">
+                <div class="flex flex-col gap-8 mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div class="flex lg:flex-row flex-col justify-between lg:items-end gap-6">
+                        <div class="flex flex-col gap-2 max-w-2xl">
+                            <span
+                                class="font-label-sm font-semibold text-label-sm text-secondary uppercase tracking-wider">
+                                B2B Engineering Spec Sheet
+                            </span>
+                            <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">
+                                Spesifikasi Teknis &amp; Kepatuhan Regulasi
+                            </h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Dokumentasi komprehensif untuk penyusunan Rencana Kerja &amp; Syarat (RKS), Bill of
+                                Quantities (BoQ), dan verifikasi tender kelistrikan.
+                            </p>
+                        </div>
+                        <!-- Technical Selector Tabs -->
+                        <div class="flex flex-wrap gap-2 bg-surface-container p-1 rounded-lg">
+                            <button
+                                class="bg-surface-container-lowest shadow-sm px-4 py-2 rounded font-label-md font-semibold text-label-md text-on-surface uppercase tab-btn"
+                                id="tab-mdp" onclick="selectSpecTab('mdp')" type="button">
+                                Main Dist. (LVMDP)
+                            </button>
+                            <button
+                                class="px-4 py-2 rounded font-label-md font-semibold text-label-md text-on-surface-variant hover:text-on-surface uppercase tab-btn"
+                                id="tab-sdp" onclick="selectSpecTab('sdp')" type="button">
+                                Sub Distribution (SDP)
+                            </button>
+                            <button
+                                class="px-4 py-2 rounded font-label-md font-semibold text-label-md text-on-surface-variant hover:text-on-surface uppercase tab-btn"
+                                id="tab-mcc" onclick="selectSpecTab('mcc')" type="button">
+                                Motor Control (MCC)
+                            </button>
+                            <button
+                                class="px-4 py-2 rounded font-label-md font-semibold text-label-md text-on-surface-variant hover:text-on-surface uppercase tab-btn"
+                                id="tab-cap" onclick="selectSpecTab('cap')" type="button">
+                                Capacitor Bank
+                            </button>
+                        </div>
+                    </div>
+                    <!-- High Precision Specification Table -->
+                    <div class="bg-surface-container-lowest shadow-sm rounded-lg overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr
+                                    class="bg-primary-container font-label-md text-label-md text-on-primary uppercase tracking-wider">
+                                    <th class="px-6 py-4 font-semibold">Parameter Rekayasa Teknis</th>
+                                    <th class="px-6 py-4 font-semibold">Nilai Spesifikasi Resmi (VOLTMAX)</th>
+                                    <th class="px-6 py-4 font-semibold">Standar Acuan &amp; Verifikasi Uji</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface"
+                                id="spec-table-body">
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Tegangan Operasional / Isolasi (Ue / Ui)</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">415V
+                                        AC / 1000V AC (50/60 Hz)</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">IEC
+                                        61439-1 Subclause 9.1.2</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Arus Nominal Busbar Utama (In)</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">800A
+                                        s/d 6300A (Form 3b / 4b)</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">SPLN
+                                        D3.022-1: 2012 / SNI 04-6956</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Ketahanan Arus Hubung Singkat (Icw)</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">50 kA
+                                        / 65 kA / 100 kA selama 1 detik</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">Uji
+                                        Laboratorium PLN LMK Certified</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Material Enclosure &amp; Ketebalan Plat</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">Cold
+                                        Rolled SPCC Steel 2.0mm Frame / 2.0mm Pintu</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">JIS
+                                        G3141 Commercial Quality SPCC</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Tingkat Perlindungan Ingress &amp; Mekanikal
+                                    </td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">IP54
+                                        (Indoor Standar) / IP65 (Outdoor NEMA 4) • IK10</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">IEC
+                                        60529 / IEC 62262 Mechanical Impact</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Pemisahan Internal Kompartemen</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">Form
+                                        2b, Form 3b, hingga Form 4b (Fully Segregated)</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">IEC
+                                        61439-2 Section 8.4</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Finishing Permukaan &amp; Ketebalan Cat</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">
+                                        Polyester Epoxy Powder Coating RAL 7035 (80-120μm)</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">ASTM
+                                        B117 Salt Spray Test 500 Jam</td>
+                                </tr>
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="px-6 py-3.5 font-medium">Material Busbar &amp; Lapisan Konduktor</td>
+                                    <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">T2
+                                        Pure Copper 99.9% ETP dengan Electro-Tin Plating</td>
+                                    <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">DIN
+                                        43671 Electrical Busbar Norms</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Certification Badges Carousel / Grid -->
+                    <div class="gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 pt-4">
+                        <div
+                            class="flex flex-col items-center gap-2 bg-surface-container-lowest shadow-sm p-4 rounded-lg text-center">
+                            <span class="text-[28px] text-secondary material-symbols-outlined">verified</span>
+                            <span class="font-label-md font-bold text-label-md text-on-surface uppercase">ISO
+                                9001:2015</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Sistem Manajemen Mutu
+                                Manufaktur</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 bg-surface-container-lowest shadow-sm p-4 rounded-lg text-center">
+                            <span class="text-[28px] text-secondary material-symbols-outlined">approval</span>
+                            <span class="font-label-md font-bold text-label-md text-on-surface uppercase">IEC 61439-1
+                                &amp; 2</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Type-Tested Assembly
+                                Certified</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 bg-surface-container-lowest shadow-sm p-4 rounded-lg text-center">
+                            <span class="text-[28px] text-secondary material-symbols-outlined">workspace_premium</span>
+                            <span class="font-label-md font-bold text-label-md text-on-surface uppercase">SNI
+                                04-6956</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Standar Nasional Indonesia
+                                (PLN)</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 bg-surface-container-lowest shadow-sm p-4 rounded-lg text-center">
+                            <span class="text-[28px] text-secondary material-symbols-outlined">flag</span>
+                            <span class="font-label-md font-bold text-label-md text-on-surface uppercase">TKDN &gt;
+                                42.5%</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Kemenperin Terverifikasi
+                                Resmi</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center gap-2 bg-surface-container-lowest shadow-sm p-4 rounded-lg text-center">
+                            <span class="text-[28px] text-secondary material-symbols-outlined">lab_research</span>
+                            <span class="font-label-md font-bold text-label-md text-on-surface uppercase">KAN
+                                Terakreditasi</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Uji Laboratorium Kalibrasi
+                                LMK</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECTION 4: TRUST & INDUSTRIAL PROOF (Projects & Testimonials) -->
+            <section class="bg-surface-container-low py-16 w-full">
+                <div class="flex flex-col gap-12 mx-auto px-6 lg:px-12 max-w-7xl">
+                    <div class="flex md:flex-row flex-col justify-between md:items-end gap-6">
+                        <div class="flex flex-col gap-2 max-w-2xl">
+                            <span
+                                class="font-label-sm font-semibold text-label-sm text-secondary uppercase tracking-wider">
+                                Rekam Jejak Lapangan
+                            </span>
+                            <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">
+                                Dipercaya 120+ Kontraktor MEP &amp; Proyek Strategis
+                            </h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Dari data center mission-critical hingga manufaktur berat, panel VOLTMAX beroperasi 24/7
+                                tanpa kompromi keandalan.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-2">
+                                <span
+                                    class="flex justify-center items-center bg-primary-container shadow-sm rounded-full w-10 h-10 font-label-sm font-bold text-label-sm text-on-primary">W</span>
+                                <span
+                                    class="flex justify-center items-center bg-secondary shadow-sm rounded-full w-10 h-10 font-label-sm font-bold text-label-sm text-on-secondary">P</span>
+                                <span
+                                    class="flex justify-center items-center bg-surface-container-high shadow-sm rounded-full w-10 h-10 font-label-sm font-bold text-label-sm text-on-surface">A</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-md font-bold text-label-md text-on-surface">99.98% Uptime
+                                    Score</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Audit FAT Terpenuhi
+                                    100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Cards Grid -->
+                    <div class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                        <!-- Project 1 -->
+                        <div class="flex flex-col bg-surface-container-lowest shadow-sm rounded-lg overflow-hidden">
+                            <div class="relative w-full h-44">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="Modern Tier 3 hyperscale data center facility server hall with synchronized electrical switchgear rows and high safety busbar trunks in Cikarang industrial corridor."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVmzkC9UGXH8Aj8H1sOfCV5GtNjFn5x32f3bxe_T-ePCVG13nCP4E6OHlKFln5AIfo9utMpQQJ4fOb4yODZ2aPCdLHL5ccAsan2olrC46HLux8jB-qNrT2Yg0om2-EVzkNjSnOQlumIyjwUtQcC5cPFWlBRntmYn0S1cf7Zp_wT7NuaBp36xaR-bBtm2OvOe8mchSHYCL8xWPpewBKJz84sntLk1CwBbHJ-NHtwag" />
+                                <span
+                                    class="top-3 right-3 absolute bg-primary px-2 py-0.5 rounded font-label-sm font-semibold text-label-sm text-on-primary uppercase">
+                                    Data Center Tier 3
+                                </span>
+                            </div>
+                            <div class="flex flex-col flex-1 justify-between gap-4 p-5">
+                                <div class="flex flex-col gap-1.5">
+                                    <h4 class="font-headline-sm text-headline-sm text-on-surface">Data Center Cikarang
+                                    </h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        14 Unit LVMDP 4000A Form 4b dengan sistem transfer otomatis ATS-AMF sinkronisasi
+                                        ganda.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center pt-3 font-label-sm text-label-sm text-on-surface-variant">
+                                    <span>Lokasi: Deltamas, Cikarang</span>
+                                    <span class="font-semibold text-secondary">4000A • Form 4b</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 2 -->
+                        <div class="flex flex-col bg-surface-container-lowest shadow-sm rounded-lg overflow-hidden">
+                            <div class="relative w-full h-44">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="Automotive manufacturing press and stamping plant interior with heavy duty motor control centers and distribution boards installed along the assembly lines."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqwSNilnjFeUXs9uANtqoLjki-xn6VJazcvLTBwTn8N-dumVHGk1vqkEZ_FBHKEjy9aGqa3KeGt3ScLyGUSZCRUa16lExJmDCsXhg0Oytsy7ww8DPjLnDWWMNli39Svzi-z2geatsa_HgfVIXphwGY39hfkXr22VGtHMLPqxNryGjC89HypBPnz-aRfcYV-8-4AkykI02mGZ5-0SXZvtW4xayD-osEyICaLM0ck_k" />
+                                <span
+                                    class="top-3 right-3 absolute bg-primary px-2 py-0.5 rounded font-label-sm font-semibold text-label-sm text-on-primary uppercase">
+                                    Manufaktur Otomotif
+                                </span>
+                            </div>
+                            <div class="flex flex-col flex-1 justify-between gap-4 p-5">
+                                <div class="flex flex-col gap-1.5">
+                                    <h4 class="font-headline-sm text-headline-sm text-on-surface">Pabrik Otomotif
+                                        Karawang</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        32 Unit Motor Control Center (MCC) Variable Speed Drive (VSD) terintegrasi PLC
+                                        SCADA.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center pt-3 font-label-sm text-label-sm text-on-surface-variant">
+                                    <span>Lokasi: KIIC Karawang</span>
+                                    <span class="font-semibold text-secondary">65kA • MCC VFD</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 3 -->
+                        <div class="flex flex-col bg-surface-container-lowest shadow-sm rounded-lg overflow-hidden">
+                            <div class="relative w-full h-44">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="Modern metropolitan tertiary hospital complex power substation room with clean IP54 medical grade isolated electrical panels and bypass controllers."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSb3gczy-UPGdwygtWNpSAJvo-8hcDQdZjQ9DttnPQpeX1BfdwQvrrE-t7hapNdK2yKgqFIG2HXrtadlqnVbZsSbDzrJ6kiKIM7zPmvlfZ-OGmK4SpKC8vBOnko8m-AEXoFZFdl0Y9BlMOK7-nu8tQ7_yXnQ4OpqeTsEjS2Wkrdy4yiS9YKoFrDpOFbs0nfbnUAvAirOX58vsC8NxPh5O1YbdN0_9SuNZt8OSUDq4" />
+                                <span
+                                    class="top-3 right-3 absolute bg-primary px-2 py-0.5 rounded font-label-sm font-semibold text-label-sm text-on-primary uppercase">
+                                    Kesehatan Vital
+                                </span>
+                            </div>
+                            <div class="flex flex-col flex-1 justify-between gap-4 p-5">
+                                <div class="flex flex-col gap-1.5">
+                                    <h4 class="font-headline-sm text-headline-sm text-on-surface">Rumah Sakit Pusat
+                                        Jakarta</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Sistem panel distribusi terisolasi ruang bedah &amp; ICU dengan zero
+                                        interruption bypass 3200A.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center pt-3 font-label-sm text-label-sm text-on-surface-variant">
+                                    <span>Lokasi: Kuningan, Jakarta</span>
+                                    <span class="font-semibold text-secondary">3200A • IP54</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 4 -->
+                        <div class="flex flex-col bg-surface-container-lowest shadow-sm rounded-lg overflow-hidden">
+                            <div class="relative w-full h-44">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="Large commercial rooftop solar PV farm on warehouse with outdoor weatherproof IP65 combiner boxes and AC distribution switchboards exposed to harsh tropical sunlight."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG1HZkNMKHFbl1ObvyAWYxXou1Wcl_4n_6UEUqkNcbCbSdxUpn6dnuEfp-n4etN-tU3KyZl5rW2b7Qc0h2As5XWoLpCycspuON5XRHm7CVuSN5pl2EXZO4-zm3rBKPZf1QkV5ZWCcqE94DQzQ32nvxzv2RsByLvFY6YZ_TW-hm1_Wk1o3QZz4QV039EBZ30sLqDHgTNyuptma4Mtt152Uwp1Wo7qMs2p5kP2jidCU" />
+                                <span
+                                    class="top-3 right-3 absolute bg-primary px-2 py-0.5 rounded font-label-sm font-semibold text-label-sm text-on-primary uppercase">
+                                    Renewable Energy
+                                </span>
+                            </div>
+                            <div class="flex flex-col flex-1 justify-between gap-4 p-5">
+                                <div class="flex flex-col gap-1.5">
+                                    <h4 class="font-headline-sm text-headline-sm text-on-surface">PLTS Atap Industri 2.5
+                                        MW</h4>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Enclosure outdoor IP65 tahan UV &amp; korosi garam untuk inverter combiner dan
+                                        proteksi grid PLN.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center pt-3 font-label-sm text-label-sm text-on-surface-variant">
+                                    <span>Lokasi: Cilegon, Banten</span>
+                                    <span class="font-semibold text-secondary">IP65 Outdoor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonials from Lead Engineers -->
+                    <div class="gap-6 grid grid-cols-1 md:grid-cols-2 pt-4">
+                        <div
+                            class="flex flex-col justify-between gap-4 bg-surface-container-lowest shadow-sm p-6 rounded-lg">
+                            <div class="flex flex-col gap-3">
+                                <div class="flex gap-1 text-secondary">
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                </div>
+                                <p class="font-body-md text-body-md text-on-surface italic">
+                                    "Penyelesaian FAT (Factory Acceptance Test) tepat waktu dan presisi busbar bending
+                                    VOLTMAX sangat rapi. Kenaikan suhu saat uji beban 100% jauh di bawah ambang batas
+                                    IEC. Sangat direkomendasikan untuk proyek EPC skala besar."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-2">
+                                <div
+                                    class="flex justify-center items-center bg-primary-container rounded-full w-10 h-10 font-bold text-on-primary">
+                                    IR
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-label-md font-bold text-label-md text-on-surface">Ir. Rahmat
+                                        Hidayat, IPM</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Senior MEP Lead • PT
+                                        Wijaya Karya MEP Division</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col justify-between gap-4 bg-surface-container-lowest shadow-sm p-6 rounded-lg">
+                            <div class="flex flex-col gap-3">
+                                <div class="flex gap-1 text-secondary">
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                    <span class="text-[18px] material-symbols-outlined">star</span>
+                                </div>
+                                <p class="font-body-md text-body-md text-on-surface italic">
+                                    "Respons tim engineering dalam mereview revisi SLD dan penyesuaian dimensi di
+                                    lapangan sangat taktis. Gambar shop drawing CAD 2D/3D mereka sangat detail sehingga
+                                    mempermudah koordinasi approval dengan konsultan pengawas."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-2">
+                                <div
+                                    class="flex justify-center items-center bg-primary-container rounded-full w-10 h-10 font-bold text-on-primary">
+                                    DS
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-label-md font-bold text-label-md text-on-surface">Deni Setiawan,
+                                        S.T.</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant">Principal Electrical
+                                        Consultant • PT Arkonin Rekayasa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Interactive Scripts for Hotspots, Tabs, and Form -->
+            <script>
+                function focusHotspot(type) {
+                    const labels = {
+                        'lock': 'Fokus 3D: Sistem Penguncian 3-Point Lock IP65 & Gasket Robotik',
+                        'busbar': 'Fokus 3D: Susunan Busbar Tembaga Cu 99.9% ETP & Pemisah UL94-V0',
+                        'breaker': 'Fokus 3D: Kompartemen ACB/MCCB Schneider Masterpact Modular Form 4b',
+                        'vent': 'Fokus 3D: Kisi Ventilasi Louver Double Filter G4 & Sensor Termal'
+                    };
+
+                    const hud = document.querySelector('.hotspot-btn');
+                    if (hud) {
+                        console.log("Switching CAD camera target to: " + labels[type]);
+                    }
+                }
+
+                const specData = {
+                    mdp: [
+                        { param: 'Tegangan Operasional / Isolasi (Ue / Ui)', val: '415V AC / 1000V AC (50/60 Hz)', std: 'IEC 61439-1 Subclause 9.1.2' },
+                        { param: 'Arus Nominal Busbar Utama (In)', val: '800A s/d 6300A (Form 3b / 4b)', std: 'SPLN D3.022-1: 2012 / SNI 04-6956' },
+                        { param: 'Ketahanan Arus Hubung Singkat (Icw)', val: '50 kA / 65 kA / 100 kA selama 1 detik', std: 'Uji Laboratorium PLN LMK Certified' },
+                        { param: 'Material Enclosure & Ketebalan Plat', val: 'Cold Rolled SPCC Steel 2.0mm Frame / 2.0mm Pintu', std: 'JIS G3141 Commercial Quality SPCC' },
+                        { param: 'Tingkat Perlindungan Ingress & Mekanikal', val: 'IP54 (Indoor Standar) / IP65 (Outdoor NEMA 4) • IK10', std: 'IEC 60529 / IEC 62262 Mechanical Impact' },
+                        { param: 'Pemisahan Internal Kompartemen', val: 'Form 2b, Form 3b, hingga Form 4b (Fully Segregated)', std: 'IEC 61439-2 Section 8.4' },
+                        { param: 'Finishing Permukaan & Ketebalan Cat', val: 'Polyester Epoxy Powder Coating RAL 7035 (80-120μm)', std: 'ASTM B117 Salt Spray Test 500 Jam' },
+                        { param: 'Material Busbar & Lapisan Konduktor', val: 'T2 Pure Copper 99.9% ETP dengan Electro-Tin Plating', std: 'DIN 43671 Electrical Busbar Norms' }
+                    ],
+                    sdp: [
+                        { param: 'Tegangan Operasional / Isolasi (Ue / Ui)', val: '230V / 400V AC (Ui 690V AC)', std: 'IEC 61439-1/2' },
+                        { param: 'Arus Nominal Busbar Utama (In)', val: '160A s/d 800A (Modular Comb Busbar)', std: 'SNI 04-0225-2000 (PUIL 2011)' },
+                        { param: 'Ketahanan Arus Hubung Singkat (Icw)', val: '25 kA / 36 kA selama 1 detik', std: 'Type Tested IEC 60947-2' },
+                        { param: 'Material Enclosure & Ketebalan Plat', val: 'Electro-galvanized Steel 1.6mm - 2.0mm', std: 'JIS G3313 Zinc-Coated' },
+                        { param: 'Tingkat Perlindungan Ingress & Mekanikal', val: 'IP43 / IP54 Indoor Wall-Mounting & Floor Standing', std: 'IEC 60529' },
+                        { param: 'Pemisahan Internal Kompartemen', val: 'Form 1 / Form 2b Modular Enclosure', std: 'IEC 61439-2' },
+                        { param: 'Finishing Permukaan & Ketebalan Cat', val: 'Powder Coating RAL 7032 / RAL 7035 Semi-Gloss', std: 'ISO 2409 Cross-Cut Adhesion' },
+                        { param: 'Material Busbar & Lapisan Konduktor', val: 'ETP Copper Bar 99.9% Tin Plated / Insulated Comb', std: 'DIN 43671' }
+                    ],
+                    mcc: [
+                        { param: 'Tegangan Operasional / Isolasi (Ue / Ui)', val: '380V - 690V AC, 3 Phase 4 Wire', std: 'IEC 60947-4-1' },
+                        { param: 'Arus Nominal Busbar Utama (In)', val: 'Up to 3200A Busbar Vertikal & Horizontal', std: 'IEC 61439-2 (Withdrawal/Fixed)' },
+                        { param: 'Tipe Starter Motor Terintegrasi', val: 'Direct-on-Line (DOL), Star-Delta, Soft-Starter, VFD', std: 'IEEE Std 841 Industrial Spec' },
+                        { param: 'Ketahanan Arus Hubung Singkat (Icw)', val: '50 kA / 65 kA selama 1 detik', std: 'Type Tested with Motor Fault Interlock' },
+                        { param: 'Komunikasi Lapangan & Telemetri', val: 'Modbus RS485, Profinet, Ethernet IP Gateway', std: 'IEC 61158 Fieldbus Industrial' },
+                        { param: 'Tingkat Perlindungan Ingress Enclosure', val: 'IP54 dengan kisi ventilasi forced-cooling thermostatic', std: 'IEC 60529 / IP65 Fan Grille' },
+                        { param: 'Pemisahan Kompartemen (Drawer)', val: 'Form 3b / Form 4b Fully Isolated Draw-out Cassette', std: 'IEC 61439-2 Clause 8.4' },
+                        { param: 'Proteksi Termal & Beban Lebih', val: 'Electronic Overload Relay Class 10/20/30 Terkalibrasi', std: 'IEC 60947-4-1' }
+                    ],
+                    cap: [
+                        { param: 'Tegangan Kerja & Frekuensi', val: '400V / 415V / 525V Detuned 50 Hz', std: 'IEC 60831-1/2' },
+                        { param: 'Total Daya Reaktif (kVAR)', val: '50 kVAR s/d 800 kVAR Langkah Bertingkat (Steps)', std: 'SNI / PUIL 2011 Standar Faktor Daya' },
+                        { param: 'Tipe Reaktor Harmonik (Detuned Reactor)', val: 'Tuning 7% (189 Hz) atau 5.67% (210 Hz) Tahan Harmonisa THDi', std: 'IEC 60076-6 Reactor Standard' },
+                        { param: 'Kontroler Power Factor Otomatis', val: 'Mikroprosesor 6 - 12 Step dengan Layar Digital LCD', std: 'IEC 61000-4-3 EMC Immunity' },
+                        { param: 'Sistem Pengosongan Kapasitor', val: 'Resistor Pelepasan Cepat (< 50V dalam waktu 60 detik)', std: 'IEC 60831-1 Section 22' },
+                        { param: 'Kontaktor Kapasitor Khusus', val: 'Dequipped dengan Damping Resistor Penahan Inrush Current', std: 'IEC 60947-4-9' },
+                        { param: 'Sirkulasi Termal & Ventilasi', val: 'Kipas Otomatis Thermostatik ganda continuous duty', std: 'Kapasitor Suhu Max 55°C' },
+                        { param: 'Tingkat Perlindungan Panel Enclosure', val: 'IP41 / IP54 Ventilated Floor Standing', std: 'IEC 60529' }
+                    ]
+                };
+
+                function selectSpecTab(tabKey) {
+                    document.querySelectorAll('.tab-btn').forEach(btn => {
+                        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+                        btn.classList.add('text-on-surface-variant');
+                    });
+
+                    const activeBtn = document.getElementById('tab-' + tabKey);
+                    if (activeBtn) {
+                        activeBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+                        activeBtn.classList.remove('text-on-surface-variant');
+                    }
+
+                    const tbody = document.getElementById('spec-table-body');
+                    if (!tbody) return;
+
+                    const items = specData[tabKey] || specData.mdp;
+                    tbody.innerHTML = items.map(item => `
+        <tr class="hover:bg-surface-container-low transition-colors">
+          <td class="px-6 py-3.5 font-medium">${item.param}</td>
+          <td class="px-6 py-3.5 font-label-md font-semibold text-label-md text-primary">${item.val}</td>
+          <td class="px-6 py-3.5 font-label-sm text-label-sm text-on-surface-variant">${item.std}</td>
+        </tr>
+      `).join('');
+                }
+
+                function handleRfqSubmit(e) {
+                    e.preventDefault();
+                    const success = document.getElementById('form-success-msg');
+                    if (success) {
+                        success.classList.remove('hidden');
+                    }
+                    const form = document.getElementById('rfq-form');
+                    if (form) {
+                        form.reset();
+                    }
+                }
+            </script>
+        </div>
+    </main>
+    <footer class="bg-primary-container shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-16 pb-12 w-full text-inverse-on-surface">
+        <div class="flex flex-col gap-12 mx-auto px-6 lg:px-12 max-w-7xl">
+            <div class="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col"><span
+                            class="font-headline-sm font-bold text-headline-sm text-on-primary uppercase tracking-tight">VOLTMAX</span><span
+                            class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-widest">Industrial
+                            Switchgear Fabrication</span></div>
+                    <p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">Pabrikasi dan
+                        perakitan Switchboard Tegangan Rendah &amp; Menengah bersertifikasi IEC 61439-1/2 dan standar
+                        SNI. Rekayasa panel presisi tinggi untuk sektor utilitas industri, data center, dan EPC.</p>
+                    <div class="flex flex-wrap gap-2 pt-2"><span
+                            class="bg-surface/10 px-2.5 py-1 rounded font-label-sm text-label-sm text-on-primary uppercase">ISO
+                            9001:2015</span><span
+                            class="bg-surface/10 px-2.5 py-1 rounded font-label-sm text-label-sm text-on-primary uppercase">IEC
+                            61439-2</span><span
+                            class="bg-surface/10 px-2.5 py-1 rounded font-label-sm text-label-sm text-on-primary uppercase">SNI
+                            04-6956.2</span></div>
+                </div>
+                <div class="flex flex-col gap-4"><span
+                        class="font-label-lg font-bold text-label-lg text-on-primary uppercase tracking-wider">Fasilitas
+                        Pabrikasi</span>
+                    <div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-primary-container">
+                        <p class="font-medium text-on-primary">PT. Voltmax Daya Mandiri</p>
+                        <p>Kawasan Industri Cikarang (Jababeka Phase III)</p>
+                        <p>Jl. Tekno Industri Raya Blok B-4 No. 12-14</p>
+                        <p>Cikarang Pusat, Bekasi, Jawa Barat 17530</p>
+                        <p class="text-tertiary-fixed-dim pt-2 font-label-md text-label-md">Fabrikasi CNC Punching &amp;
+                            Busbar Bending Otomatis</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4"><span
+                        class="font-label-lg font-bold text-label-lg text-on-primary uppercase tracking-wider">Engineering
+                        RFQ &amp; Hotline</span>
+                    <div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-primary-container">
+                        <div class="flex flex-col"><span
+                                class="font-label-sm text-label-sm text-on-primary uppercase">RFQ Spesifikasi &amp;
+                                SLD:</span><span
+                                class="text-tertiary-fixed-dim font-label-md text-label-md">rfq@voltmax-switchgear.co.id</span>
+                        </div>
+                        <div class="flex flex-col"><span
+                                class="font-label-sm text-label-sm text-on-primary uppercase">Emergency Field
+                                Support:</span><span class="font-label-md text-label-md text-on-primary">+62 (21)
+                                8934-8890 / 8891</span></div>
+                        <div class="flex flex-col"><span
+                                class="font-label-sm text-label-sm text-on-primary uppercase">Direct WhatsApp
+                                Engineer:</span><span class="text-secondary-fixed-dim font-label-md text-label-md">+62
+                                811-8934-889</span></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4"><span
+                        class="font-label-lg font-bold text-label-lg text-on-primary uppercase tracking-wider">Jaminan
+                        Kepatuhan</span>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex flex-col gap-1 bg-surface/5 p-3 rounded"><span
+                                class="text-tertiary-fixed font-label-sm font-semibold text-label-sm uppercase">Type-Tested
+                                Assembly (TTA)</span><span
+                                class="font-body-sm text-body-sm text-on-primary-container">Verifikasi kenaikan suhu,
+                                ketahanan hubung singkat s/d 100kA, dan IP54/IP65.</span></div>
+                        <div class="flex flex-col gap-1 bg-surface/5 p-3 rounded"><span
+                                class="text-secondary-fixed font-label-sm font-semibold text-label-sm uppercase">Komponen
+                                Terverifikasi</span><span
+                                class="font-body-sm text-body-sm text-on-primary-container">Busbar T2 electrolytic
+                                copper 99.9% purity dengan formasi Form 2b hingga Form 4b.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex md:flex-row flex-col justify-between items-center gap-4 pt-8 font-label-sm text-label-sm text-on-primary-container">
+                <p>© 2024 PT Voltmax Daya Mandiri. Hak Cipta Dilindungi Undang-Undang. Spesifikasi mengacu standar IEC
+                    &amp; SPLN.</p>
+                <div class="flex items-center gap-6"><a class="hover:text-on-primary transition-colors" href="#">Katalog
+                        Teknis PDF</a><a class="hover:text-on-primary transition-colors" href="#">Protokol Pengujian
+                        Pabrik (FAT)</a><a class="hover:text-on-primary transition-colors" href="#">Syarat &amp;
+                        Ketentuan Tender</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
